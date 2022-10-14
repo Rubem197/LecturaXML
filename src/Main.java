@@ -47,12 +47,14 @@ public class Main {
                                 if (node2.getNodeType() == Node.ELEMENT_NODE) {
                                     Element eElement2 = (Element) node2;
 
-                                    precioTotal+= Double.parseDouble(eElement2.getElementsByTagName("precio_unidad").item(0).getTextContent());
+
 
                                     if (eElement2.getElementsByTagName("unidades").item(0)==null){
                                         cantidadTotal++;
+                                        precioTotal+= Double.parseDouble(eElement2.getElementsByTagName("precio_unidad").item(0).getTextContent());
                                     }else{
                                         cantidadTotal+=Double.parseDouble(eElement2.getElementsByTagName("unidades").item(0).getTextContent());
+                                        precioTotal+= Double.parseDouble(eElement2.getElementsByTagName("precio_unidad").item(0).getTextContent())*cantidadTotal;
                                     }
                                     if (eElement2.getElementsByTagName("descuento").item(0)!=null) {
                                         totalDescuentos+=Double.parseDouble(eElement2.getElementsByTagName("descuento").item(0).getTextContent());
